@@ -1,10 +1,23 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app">
+  <NavBarComp/>
+    <router-view />
+    <FooterComp/>
+ 
+  </div>
 </template>
+<script >
+import NavBarComp from './components/NavBarComp.vue';
+import FooterComp from './components/FooterComp.vue';
+
+export default {
+  name: 'App',
+  components: {
+    NavBarComp,
+    FooterComp
+}
+}
+</script>
 
 <style>
 #app {
@@ -26,5 +39,11 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+*{
+  font-family: "Arsenal SC", sans-serif;
+}
+body{
+  background-color: black;
 }
 </style>
