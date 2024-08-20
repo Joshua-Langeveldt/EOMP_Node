@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <title>API</title>
+</head>
+<body>
+    <div class="api-container">
+        <h1>Welcome To AniVerse</h1>
+
+        <!-- Users API -->
+        <table>
+            <tr>
+                <th>Route</th>
+                <th>Method</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>/user</td>
+                <td>GET</td>
+                <td>Fetches a list of all users.</td>
+            </tr>
+            <tr>
+                <td>/user/:id</td>
+                <td>GET</td>
+                <td>Retrieves details of a specific user by ID.</td>
+            </tr>
+            <tr>
+                <td>/user/register</td>
+                <td>POST</td>
+                <td>Registers a new user.</td>
+            </tr>
+            <tr>
+                <td>/user/:id</td>
+                <td>PATCH</td>
+                <td>Updates user information (e.g., profile edits).</td>
+            </tr>
+            <tr>
+                <td>/user/:id</td>
+                <td>DELETE</td>
+                <td>Deletes a user account.</td>
+            </tr>
+            <tr>
+                <td>/user/login</td>
+                <td>POST</td>
+                <td>Handles user login (authentication).</td>
+            </tr>
+
+            <tr>
+                <td>/product</td>
+                <td>GET</td>
+                <td>Fetches a list of all products.</td>
+            </tr>
+            <tr>
+                <td>/product/recent</td>
+                <td>GET</td>
+                <td>Retrieves recently added products.</td>
+            </tr>
+            <tr>
+                <td>/product/:id</td>
+                <td>GET</td>
+                <td>Retrieves details of a specific product by ID.</td>
+            </tr>
+            <tr>
+                <td>/product/add</td>
+                <td>POST</td>
+                <td>Adds a new product to the database.</td>
+            </tr>
+            <tr>
+                <td>/product/:id</td>
+                <td>PATCH</td>
+                <td>Updates product information (e.g., price change).</td>
+            </tr>
+            <tr>
+                <td>/product/:id</td>
+                <td>DELETE</td>
+                <td>Deletes a product from the database.</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,45 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:is(h1, h2, h3, h4, h5, h6){
+    text-align: center;
+}
+
+  body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .api-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ac3232;
+            border-radius: 8px;
+            box-shadow: 5px 5px 6px grey;
+        }
+        h1 {
+            text-align: center;
+            color: #f9f4f4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            color: #f9f4f4;
+
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #716d6d;
+            color: black;
+        }
