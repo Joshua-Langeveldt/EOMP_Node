@@ -34,5 +34,5 @@ function verifyAToken(req, res, next) {
 }
 
 export {
-    createToken, verifyAToken
+    createToken
 }
