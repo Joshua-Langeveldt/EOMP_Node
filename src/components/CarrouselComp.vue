@@ -1,7 +1,11 @@
-
-<template>
+   <template>
     <div id="carrousel">
-      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div
+        id="carouselExampleSlidesOnly"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        data-bs-interval="2000" 
+      >
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="overlay-container">
@@ -49,7 +53,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(144, 10, 6, 0.5); /* Transparent red overlay */
+    background-color: rgba(144, 10, 6, 0.5); 
   }
   </style>
   
