@@ -1,26 +1,9 @@
 <template>
     <div id="nav">
         
-        <!-- <ul class="nav justify-content-center">
-  <li class="nav-item">
-    <router-link class="nav-link"  :class="{ active: $route.path === '/' }" id="col" to="/">Home</router-link>  </li>
-  <li class="nav-item">
-    <router-link class="nav-link" :class="{ active: $route.path=== '/about' }" id="col" to="/about">About</router-link>
-</li>
-  <li class="nav-item">
-    <a class="nav-link disabled" aria-disabled="true"><img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24"></a>
-  </li>
-  <li class="nav-item">
-    <router-link class="nav-link" :class="{ active: $route.path=== '/products' }" id="col" to="/products">Products</router-link>
-</li>
-  <li class="nav-item">
-    <router-link class="nav-link" :class="{ active: $route.path=== '/contact' }" id="col" to="/contact">Get in touch</router-link>
-</li>
-  
-  
-</ul> -->
-
-    <nav class="navbar navbar-expand-lg sticky-top">
+     
+<div class="fixed-top">
+  <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -36,7 +19,7 @@
                     </li>
                     <li class="nav-item">
                         <router-link class="navbar-brand" to="/">
-                <img src="https://joshua-langeveldt.github.io/images/images/Logo/aniverse.png" loading="lazy" alt="logo">
+                <img src="https://joshua-langeveldt.github.io/images/images/Logo/aniverse.png" loading="lazy" alt="logo" style="border-radius: 50%; border: solid #900A06 3px;">
             </router-link>
                      </li>
                      <li class="nav-item">
@@ -51,13 +34,18 @@
                     </li>
                 </ul>
                 </ul>
+                
+
             </div>
         </div>
+        
     </nav>
     <div class="color-gradient">
     </div>
 
     </div>
+</div>
+
 </template>
 <script>
 export default {
@@ -68,7 +56,6 @@ export default {
 #nav{
     background-color: #23252B;
     height: 80px;
-    border-bottom: solid 10px #900A06;
     font-family: Playfair Display;
 }
 #col{
@@ -101,8 +88,8 @@ nav a.router-link-exact-active {
     margin-left: 13rem;
 }
 .color-gradient{
-    height:15px;
-    background: linear-gradient(-45deg, #FFA500, #FF4500, #FF0000, #900A06
+    height:10px;
+    background: linear-gradient(-45deg, #900A06, #900A0680, #FF0000, #900A06
 );
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;

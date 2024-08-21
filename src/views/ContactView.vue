@@ -1,7 +1,7 @@
 <template>
     <div id="contactP">
         <div class="container pt-5">
-            <h1 style="margin-top: 1%; color: #900A06; font-weight: bolder; margin-bottom: 5%;">Get in touch !</h1>
+            <h1 style="margin-top: 1%; color: white; font-weight: bolder; margin-bottom: 5%;">Get in touch !</h1>
             <div class="row">
                 <div class="col-lg-4">
                     <FormComp/>
