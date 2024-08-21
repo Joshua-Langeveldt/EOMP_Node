@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style src="@/assets/css/styles.css">
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -47,3 +47,4 @@ body{
   background-color: black;
 }
 </style>
+
