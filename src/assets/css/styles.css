@@ -11,6 +11,9 @@
     box-sizing: border-box;
 } */
 /* Custom variables */
+body{
+    background-color: black;
+  }
 :root {
     --primary: rgb(0, 0, 0);
     --secondary: white;
