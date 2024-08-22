@@ -19,7 +19,7 @@
                     </li>
                     <li class="nav-item">
                         <router-link class="navbar-brand" to="/">
-                <img src="https://joshua-langeveldt.github.io/images/images/Logo/aniverse.png" loading="lazy" alt="logo" style="border-radius: 50%; border: solid #900A06 3px;">
+                <img src="https://joshua-langeveldt.github.io/images/images/Logo/aniverse.png" loading="lazy" alt="logo" style="border-radius: 50%; border: solid white 1.5px;">
             </router-link>
                      </li>
                      <li class="nav-item">
@@ -53,17 +53,20 @@ export default {
 }
 </script>
 <style>
-#nav{
+
+#nav {
     background-color: #23252B;
     height: 80px;
     font-family: Playfair Display;
 }
-#col{
-    color: white;
 
+#col {
+    color: white;
 }
-.nav-link{
-  font-family: Playfair Display;
+
+.nav-link {
+    font-family: Playfair Display;
+    transition: color 0.3s ease, border-bottom 0.3s ease; 
 }
 
 nav {
@@ -71,29 +74,41 @@ nav {
     background-color: #23252B;
     text-align: center;
 }
-.navbar-nav{
+
+.navbar-nav {
     margin-left: 26rem;
 }
+
 nav a {
     font-weight: 500;
     font-size: 1.2rem !important;
     color: #fff !important;
     margin: 1.5rem;
     margin-right: 3rem;
+    text-decoration: none; 
 }
+
 nav a.router-link-exact-active {
-    color: #B21616;
+    color: #B21616; 
+    border-bottom: 2px solid #B21616; 
 }
-.admin-icon{
+
+.nav-link:hover {
+    color: #FF5733; 
+    border-bottom: 2px solid #FF5733; 
+}
+
+.admin-icon {
     margin-left: 13rem;
 }
-.color-gradient{
-    height:10px;
-    background: linear-gradient(-45deg, #900A06, #900A0680, #FF0000, #900A06
-);
+
+.color-gradient {
+    height: 10px;
+    background: linear-gradient(-45deg, #900A06, #900A0680, #FF0000, #900A06);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
 }
+
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -105,10 +120,12 @@ nav a.router-link-exact-active {
         background-position: 0% 50%;
     }
 }
+
 img[alt='logo'] {
     width: 5rem;
     border-radius: 20px;
     border: 1px solid white;
 }
+
 
 </style>

@@ -1,145 +1,52 @@
 <template>
-    <div>
-        <div class="container pt-5" style="margin-top: 1%; margin-bottom: 5%;">
-        <h1 style="margin-top: 1%; color: white; font-weight: bolder; margin-bottom: 2%;">Anime Films</h1>
-        <CardComp/>
+    <div class="container">
+        <div class="row">
+            <h2 class="heading display-2 align-items-start d-flex">Products</h2>
         </div>
-        <div class="container pt-5" style="margin-top: 1%; margin-bottom: 5%;">
-        <h1 style="margin-top: 1%; color: white; font-weight: bolder; margin-bottom: 2%;">Anime Series</h1>
-        <CardComp/>
+        <div class="cust-card row gap-2 justify-content-center my-2 " v-if="products">
+            <Card v-for="product in products" :key="product.prodID" class="bg-dark">
+                <template #cardHeader>
+                    <img :src="product.prodURL" loading="lazy" class="img-fluid" :alt="product.prodName">
+                    <!-- {{ product.prodURL }} -->
+                </template>
+                <template #cardBody>
+                    <h5 class="card-title fw-bold text-white">{{ product.prodName }}</h5>
+                    <p class="lead text-white"><span class="text-white fw-bold">Amount</span>: R{{ product.amount }}</p>
+                    <div class="button-wrapper d-md-flex d-block justify-content-between">
+                        <router-link :to="{ name: 'product', params: { id: product.prodID } }">
+                            <button class="btn btn-danger">View Details</button>
+                        </router-link>
+                        <button class="btn btn-success">Purchase</button>
+                    </div>
+                </template>
+            </Card>
         </div>
-        <div class="container pt-5" style="margin-top: 1%; margin-bottom: 5%;">
-        <h1 style="margin-top: 1%; color: white; font-weight: bolder; margin-bottom: 2%;">Anime Merch</h1>
-        <CardComp/>
+        <div v-else>
+            <Spinner />
         </div>
     </div>
 </template>
-<script>
-import CardComp from '@/components/CardComp.vue'
-
-
-export default {
-    components:{
-        CardComp
-    },
-    methods:{
-        getProducts(){
-            return this.$store.state.data
-        }
-    },
-    computed:{
-        fetchData(){
-            return this.$store.dispatch('fetchData')
-        }
-    },
-    mounted() {
-        this.fetchData()
-    },
-}
+<script setup>
+import { useStore } from 'vuex'
+import { computed, onMounted } from 'vue'
+import Spinner from '@/components/Spinner.vue'
+import Card from '@/components/CardComp.vue'
+const store = useStore()
+const products = computed(
+    () => store.state.products
+)
+onMounted(() => {
+    store.dispatch('fetchProducts')
+})
 </script>
-<style>
-   
+<style scoped>
+.cust-card{
+margin:2rem !important;
+}
+.heading {
+    margin-left: 4rem;
+    margin-bottom: 2rem;
+    margin-top:5rem;
+    color: #ffffff;
+}
 </style>
-
-
-<!-- second attempt -->
-<!-- <template>
-    <div>
-      <div class="container pt-5" style="margin-top: 1%; margin-bottom: 5%;">
-        <h1 style="margin-top: 1%; color: white; font-weight: bolder; margin-bottom: 2%;">Anime Films</h1>
-        <CardComp :products="animeFilms" />
-      </div>
-      <div class="container pt-5" style="margin-top: 1%; margin-bottom: 5%;">
-        <h1 style="margin-top: 1%; color: white; font-weight: bolder; margin-bottom: 2%;">Anime Series</h1>
-        <CardComp :products="animeSeries" />
-      </div>
-      <div class="container pt-5" style="margin-top: 1%; margin-bottom: 5%;">
-        <h1 style="margin-top: 1%; color: white; font-weight: bolder; margin-bottom: 2%;">Anime Merch</h1>
-        <CardComp :products="animeMerch" />
-      </div>
-    </div>
-  </template>
-  
-  <script>
-  import CardComp from '@/components/CardComp.vue'
-  import { mapGetters, mapActions } from 'vuex'
-  
-  export default {
-    components: {
-      CardComp
-    },
-    computed: {
-      ...mapGetters(['getData']),
-      animeFilms() {
-        return this.getData.filter(item => item.category === 'Films')
-      },
-      animeSeries() {
-        return this.getData.filter(item => item.category === 'Series')
-      },
-      animeMerch() {
-        return this.getData.filter(item => item.category === 'Merch')
-      }
-    },
-    methods: {
-      ...mapActions(['fetchData'])
-    },
-    mounted() {
-      this.fetchData()
-    }
-  }
-  </script>
-  
-  <style>
-  </style> -->
-
-  <!-- <template>
-    <div>
-      <div class="container pt-5" style="margin-top: 1%; margin-bottom: 5%;">
-        <h1 style="margin-top: 1%; color: white; font-weight: bolder; margin-bottom: 2%;">Anime Films</h1>
-        <CardComp :products="animeFilms" />
-      </div>
-      <div class="container pt-5" style="margin-top: 1%; margin-bottom: 5%;">
-        <h1 style="margin-top: 1%; color: white; font-weight: bolder; margin-bottom: 2%;">Anime Series</h1>
-        <CardComp :products="animeSeries" />
-      </div>
-      <div class="container pt-5" style="margin-top: 1%; margin-bottom: 5%;">
-        <h1 style="margin-top: 1%; color: white; font-weight: bolder; margin-bottom: 2%;">Anime Merch</h1>
-        <CardComp :products="animeMerch" />
-      </div>
-    </div>
-  </template>
-  
-  <script>
-  import CardComp from '@/components/CardComp.vue'
-  import { mapGetters, mapActions } from 'vuex'
-  
-  export default {
-    components: {
-      CardComp
-    },
-    computed: {
-      ...mapGetters(['getData']),
-      animeFilms() {
-        return Array.isArray(this.getData) ? this.getData.filter(item => item.category === 'Films') : [];
-      },
-      animeSeries() {
-        return Array.isArray(this.getData) ? this.getData.filter(item => item.category === 'Series') : [];
-      },
-      animeMerch() {
-        return Array.isArray(this.getData) ? this.getData.filter(item => item.category === 'Merch') : [];
-      }
-    },
-    methods: {
-      ...mapActions(['fetchData'])
-    },
-    mounted() {
-      this.fetchData();
-    }
-  }
-  </script>
-  
-  <style>
-  /* Your styles */
-  </style>
-   -->
-  

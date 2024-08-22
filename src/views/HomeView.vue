@@ -1,8 +1,11 @@
 <template>
   <div class="home">
    <CarrouselComp/>
-   <div>
-    <h1 style="font-family: Playfair Display; font-size: 35px; color: white; font-weight: bold; margin-top: 5%;">Most Popular</h1>
+   <div data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+
+</div>
+   <div id="arrows" style="margin-bottom: 5%;">
+    <h1 style="font-family: Playfair Display; font-size: 35px; color: white; font-weight: bold; margin-top: 3%; margin-bottom: 1%;">Most Popular</h1>
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -24,10 +27,11 @@
 </div>
    </div>
    
+   
 
-   <div id="coming">
+   <div id="coming" data-aos="flip-left">
     <div id="bg-wrap">
-        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" class="custom-gradient">
             <defs>
                 <radialGradient id="Gradient1" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
                     <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
@@ -82,10 +86,10 @@
     <div class="container text-center">
         <div class="row">
             <div class="col align-self-start" style="margin-top: 3%; margin-bottom: 3%;">
-                <img src="https://caitlin-dalwai.github.io/imgs/demon-slayer%201%20(1).png" alt="" style="box-shadow: 0px 8px 20px black; border: black 5px solid;">
+                <img src="https://caitlin-dalwai.github.io/imgs/demon-slayer%201%20(1).png" alt="" style="box-shadow: 6px 6px 6px black; border: black 5px solid;">
             </div>
             <div class="col align-self-end" style="margin-top: 3%; margin-bottom: 3%;">
-                <img src="https://caitlin-dalwai.github.io/imgs/image%209.png" alt="" style="box-shadow: 0px 8px 20px black; border: black 5px solid;">
+                <img src="https://caitlin-dalwai.github.io/imgs/image%209.png" alt="" style="box-shadow: 6px 6px 6px black; border: black 5px solid;">
             </div>
         </div>
     </div>
@@ -97,18 +101,41 @@
 
 <script>
 import CarrouselComp from '../components/CarrouselComp.vue';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 export default {
+    mounted() {
+    AOS.init();
+    
+  },
   components:{
    CarrouselComp
   }
-  
-  
 }
+
 </script>
-<style>
+<style scoped>
+
+/* .custom-gradient{
+    background: linear-gradient(-45deg, #FFA500, #FF4500, #FF0000, #900A06
+);
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+} */
 
 #coming {
+
     position: relative;
     overflow: hidden;
 }

@@ -5,13 +5,27 @@
               <div class="col-md-9">
                 <div class="row">
                   <div class="col-md-5">
-                    <h2 class="footer-heading mb-4">Find Us</h2>
-                    <p>South Africa, Cape Town </p>
-                      <p>Phone Number: +27 78 450 3293</p>
-                      <p>Email:langeveldt20joshua@gmail.com</p>
+                    <h2 class="footer-heading mb-4" style="margin-top: 3%;">Find Us</h2>
+                    <div style="display: flex; align-items: center; margin-left: 25%;">
+  <img src="https://caitlin-dalwai.github.io/imgs-fin/Vector%20(1).png" alt="" >
+  <p style="margin-top: 4%; margin-left: 2%;">South Africa, Cape Town</p>
+</div>
+<div style="display: flex; align-items: center; margin-left: 25%;">
+  <img src="https://caitlin-dalwai.github.io/imgs-fin/Vector.png" alt="" >
+  <p style="margin-top: 4%; margin-left: 2%;">+27 78 450 3293</p>
+  <p style="margin-top: 4%; margin-left: 2%;">+27 82 701 8105</p>
+
+</div>
+<div style="display: flex; align-items: center; margin-left: 25%;">
+  <img src="https://caitlin-dalwai.github.io/imgs-fin/Vector (2).png" alt="" >
+  <p style="margin-top: 4%; margin-left: 2%;">langeveldt20joshua@gmail.com</p>
+  <p style="margin-top: 4%; margin-left: 2%;">dalwaicaitlin@gmail.com</p>
+
+</div>
+                    
                   </div>
                   <div class="col-md-3 ml-auto">
-                    <h2 class="footer-heading mb-4">Features</h2>
+                    <h2 class="footer-heading mb-4" style="margin-top: 3%;">Features</h2>
                     <ul class="list-unstyled">
                       <li><a class="nav-link" href="/about">About Us</a></li>
                       <li><a class="nav-link" href="/products">Products</a></li>
@@ -19,19 +33,19 @@
                     </ul>
                   </div>
                   <div class="col-md-3">
-                    <h2 class="footer-heading mb-4">Follow Us</h2>
-                    <a href="https://github.com/King20Jamin" class="nav-links"><i class="bi bi-github"></i></a>
-                    <a href="https://www.linkedin.com/in/jamin-langeveldt-04b304289/?originalSubdomain=za" class=" nav-links"><i class="bi bi-linkedin"></i></a>
+                    <h2 class="footer-heading mb-4" style="margin-top: 3%;">Follow Us</h2>
+                    <a href="https://github.com/King20Jamin" class="nav-links"><img src="https://caitlin-dalwai.github.io/imgs-fin/icons8-git-24%201.png" alt=""></a>
+                    <a href="https://www.linkedin.com/in/jamin-langeveldt-04b304289/?originalSubdomain=za" class=" nav-links"><img src="https://caitlin-dalwai.github.io/imgs-fin/icons8-linkedin-50 1.png" alt=""></a>
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
-                <h2 class="footer-heading mb-4">Email Us</h2>
-                <form action="mailto:langeveldt20jamin@gmail.com" method="post" class="subcription-form">
+                <h2 class="footer-heading mb-4" style="margin-top: 3%;">Email Us</h2>
+                <form action="mailto:langeveldt20jamin@gmail.com, dalwaicaitlin@gmail.com" method="post" class="subcription-form">
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control border-warning text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-dark text-white" type="button" id="button-addon2">Send</button>
+                    <input type="text" class="form-control border-danger text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2" style="color: black;">
+                    <div class="input-group-append" style="background-color: #23252B;">
+                      <button class="btn btn-danger text-white" type="button" id="button-addon2" >Send</button>
                     </div>
                   </div>
                 </form>
@@ -62,12 +76,13 @@
       /* Footer styling */
     .footerContainer {
         padding: 20px;
-        font-family: "Italiana", sans-serif;
+        font-family: "Playfair Display";
       font-weight: 400;
       font-style: normal;
-          font-size: 1.2rem;
+          font-size: 15px;
           background-color: #23252B;
           color: white;
+          /* height: 300px; */
       }
       /* About me section */
       .footerContainer .about-me {

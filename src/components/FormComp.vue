@@ -1,7 +1,7 @@
 <template>
     <div >
         <form id="myForm" action="https://submit-form.com/FBtdQasKq" method="POST" novalidate>
-                        <div class="p-3 m-5 bd-example m-5 mt-0 border-5 ">
+                        <div class="p-3 m-5 bd-example m-5 mt-0 border-5">
                             <div class="mb-3" style="width: 100%;">
                                 <label for="name" class="form-label" id="fCon" style="color: white;" >Name</label>
                                 <br>

@@ -1,13 +1,14 @@
 <template>
     <div id="contactP">
+      <canvas id="demo"></canvas>
         <div class="container pt-5">
-            <h1 style="margin-top: 1%; color: white; font-weight: bolder; margin-bottom: 5%;">Get in touch !</h1>
+            <h1 style="margin-top: 2%; color: white; font-weight: bolder; margin-bottom: 5%;">Get in touch !</h1>
             <div class="row">
                 <div class="col-lg-4">
                     <FormComp/>
                 </div>
                 <div class="col-lg-4">
-                    <img src="https://i.postimg.cc/nrVj3Vwh/klipartz-com-1.png" alt="">
+                    <img src="https://caitlin-dalwai.github.io/imgs-fin/klipartz.com%201.png" alt="">
                 </div>
             
             <div class="col-lg-4" style="height: fit-content; color: white;">
@@ -28,16 +29,245 @@
     </div>
 </template>
 <script>
+/* eslint-disable */
 import FormComp from '@/components/FormComp.vue';
-
+import _ from 'lodash';
 export default {
-  components:{
+  components: {
     FormComp
-  }  
+  },
+  mounted() {
+    let { random, range, times, assign } = _;
+    const WIDTH = window.innerWidth;
+    const HEIGHT = window.innerHeight;
+
+    const FloatArray = window.Float32Array || Array;
+
+    function fuzzy(range, base) {
+      return (base || 0) + (Math.random() - 0.5) * range * 2;
+    }
+
+    function makeOctaveNoise(width, height, octaves) {
+      let canvas = document.createElement('canvas'),
+        ctx = canvas.getContext('2d');
+
+      canvas.width = width;
+      canvas.height = height;
+
+      ctx.fillStyle = 'black';
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.globalAlpha = 1 / octaves;
+      ctx.globalCompositeOperation = 'lighter';
+
+      for (let i = 0; i < octaves; i++) {
+        let octave = makeNoise(width >> i, height >> i);
+        ctx.drawImage(octave, 0, 0, width, height);
+      }
+      return canvas;
+    }
+
+    function makeNoise(width, height) {
+      let canvas = document.createElement('canvas'),
+        ctx = canvas.getContext('2d');
+
+      canvas.width = width;
+      canvas.height = height;
+
+      let imgData = ctx.getImageData(0, 0, width, height),
+        data = imgData.data,
+        pixels = data.length;
+
+      for (let i = 0; i < pixels; i += 4) {
+        data[i] = Math.random() * 255;
+        data[i + 1] = Math.random() * 255;
+        data[i + 2] = Math.random() * 255;
+        data[i + 3] = 255;
+      }
+      ctx.putImageData(imgData, 0, 0);
+
+      return canvas;
+    }
+
+    let defaults = {
+      maxAge: 70,
+      exposure: 0.1,
+      damping: 0.8,
+      noise: 1.0,
+      fuzz: 1.0,
+      intensity: 1.0,
+      vx: 10,
+      vy: 10,
+      spawn: 5,
+      octaves: 8,
+      color: {
+        r: 144, // Red color component for #900A06
+        g: 10,  // Green color component for #900A06
+        b: 6    // Blue color component for #900A06
+      },
+      width: WIDTH,
+      height: HEIGHT,
+      x: WIDTH * 0.5,
+      y: HEIGHT * 0.5
+    }
+
+    class Emitter {
+      constructor(options) {
+        assign(this, defaults, options);
+
+        this.canvas = document.createElement('canvas');
+        this.canvas.width = this.width;
+        this.canvas.height = this.height;
+        this.ctx = this.canvas.getContext('2d');
+
+        this.noiseData = this.noiseCanvas.getContext('2d').getImageData(0, 0, this.width, this.height).data;
+        this.particles = [];
+
+        this.ctx.fillStyle = 'black';
+        this.ctx.fillRect(0, 0, this.width, this.height);
+        this.imgdata = this.ctx.getImageData(0, 0, this.width, this.height);
+        this.data = this.imgdata.data;
+        this.ctx.clearRect(0, 0, this.width, this.height);
+
+        this.hdrdata = new FloatArray(this.data.length);
+        times(this.noiseData.length, n => {
+          this.hdrdata[n] = 0;
+        });
+        this.velocity = {
+          x: random(-0.5, 0.5, true),
+          y: random(-0.5, 0.5, true)
+        }
+
+        this.update = this.update.bind(this);
+      }
+
+      tonemap(n) {
+        return (1 - Math.pow(2, -n * 0.005 * this.exposure)) * 255;
+      }
+
+      getNoise(x, y, channel) {
+        return this.noiseData[(~~x + ~~y * this.width) * 4 + channel] / 127 - 1.0;
+      }
+
+      update() {
+        if (this.x < 0 || this.x > this.width) {
+          return;
+        }
+        if (this.y < 0 || this.y > this.height) {
+          return;
+        }
+
+        this.x += this.velocity.x;
+        this.y += this.velocity.y;
+
+        let { x, y, vx, vy, width, height, color, maxAge, damping, noise, fuzz, intensity, spawn } = this;
+        let { r, g, b } = color;
+
+        times(spawn, n => {
+          this.particles.push({
+            vx: fuzzy(vx),
+            vy: fuzzy(vy),
+            x: x,
+            y: y,
+            age: 0
+          });
+        });
+
+        let alive = [];
+
+        this.particles.forEach(p => {
+          p.vx = p.vx * damping + this.getNoise(p.x, p.y, 0) * 4 * noise + fuzzy(0.1) * fuzz;
+          p.vy = p.vy * damping + this.getNoise(p.x, p.y, 1) * 4 * noise + fuzzy(0.1) * fuzz;
+          p.age++;
+          times(10, x => {
+            p.x += p.vx * 0.1;
+            p.y += p.vy * 0.1;
+            let index = (~~p.x + ~~p.y * width) * 4;
+            this.data[index] = this.tonemap(this.hdrdata[index] += r * intensity);
+            this.data[index + 1] = this.tonemap(this.hdrdata[index + 1] += g * intensity);
+            this.data[index + 2] = this.tonemap(this.hdrdata[index + 2] += b * intensity);
+          });
+          if (p.age < maxAge) {
+            alive.push(p);
+          }
+        });
+        this.ctx.putImageData(this.imgdata, 0, 0);
+        this.particles = alive;
+      }
+    }
+
+    class Smoke {
+      constructor(container) {
+        let canvas = container;
+        let width = WIDTH;
+        let height = HEIGHT;
+        canvas.width = width;
+        canvas.height = height;
+        let ctx = canvas.getContext('2d');
+        let y = canvas.height * 0.5;
+        let noiseCanvas = makeOctaveNoise(width, height, 8);
+
+        let emitter = new Emitter({
+          maxAge: 300,
+          width: canvas.width,
+          height: canvas.height,
+          damping: 0.75,
+          exposure: 0.05,
+          intensity: 1.0,
+          noiseCanvas: noiseCanvas
+        });
+
+        emitter.x = 0;
+        emitter.y = y;
+        emitter.velocity.x = 1;
+        emitter.velocity.y = 0;
+
+        this.canvas = canvas;
+        this.ctx = ctx;
+        this.emitters = [emitter];
+
+        this.update = this.update.bind(this);
+        this.loop = this.loop.bind(this);
+        this.loop();
+      }
+
+      update() {
+        let ctx = this.ctx,
+          canvas = this.canvas;
+
+        ctx.globalCompositeOperation = 'normal';
+        ctx.fillStyle = 'black'; // Black background color
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        this.ctx.globalCompositeOperation = 'lighter';
+        this.emitters.forEach(emitter => {
+          emitter.update();
+          this.ctx.drawImage(emitter.canvas, 0, 0);
+          emitter.ctx.restore();
+        });
+      }
+
+      loop() {
+        this.update();
+        requestAnimationFrame(this.loop);
+      }
+    }
+
+    let smoke = new Smoke(document.getElementById('demo'), { width: WIDTH, height: HEIGHT });
+  }
 }
 </script>
 <style>
    *{
     font-family: Playfair Display;
    } 
+   #demo{
+    position: absolute;
+   z-index: -1;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   width: 100vw;
+   }
 </style>
