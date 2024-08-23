@@ -1,7 +1,7 @@
  
 
   <template>
-    <div id="carrousel" style="margin-top: 2.5%;">
+    <div id="carrousel" >
       <div
         id="carouselExampleSlidesOnly"
         class="carousel slide carousel-fade"
@@ -18,7 +18,7 @@
                 <h5 style="font-size: smaller; color:white ; font-weight: bold; background-color: black;">Sub | Dub - Comedy Romance</h5>
                 <p style="font-size: medium; width: 350px; margin-left: 10%; color: white;  ">"The Cafe Terrace and Its Goddesses" is a captivating anime series that blends slice-of-life charm with a touch of fantasy. Set in a quaint, picturesque café, the story revolves around a young man who inherits the family business and discovers a world of enchanting and mysterious goddesses who frequent the café. Each episode delves into the unique personalities of these divine patrons and their intriguing interactions with the café’s new owner</p>
                 <div class="btn">
-                  <button style="border-radius: 25px; height: 50px;" class="btn"><a href="../views/ProductsView.vue" style="color: white; font-weight: bold;">See more in products</a></button>
+                  <button style="border-radius: 25px; height: 50px;" class="btn" id="hoverC" ><a href="./products" style="color: white; font-weight: bold;">See more in products</a></button>
                 </div>
               </div>
             </div>
@@ -32,7 +32,7 @@
                 <h5 style="font-size: smaller; color: white; font-weight: bold; background-color: black;">Sub | Dub - Comedy Romance</h5>
                 <p style="font-size: medium; width: 350px;  color: white; margin-left: 10%;  ">"One Punch Man" follows the story of Saitama, a seemingly ordinary man who has trained himself to become the strongest hero in the world. With just a single punch, Saitama can defeat any opponent, no matter how powerful. However, his overwhelming strength has left him bored and unfulfilled, as he yearns for a challenge worthy of his power.</p>
                 <div class="btn">
-                  <button style="border-radius: 25px; height: 50px;" class="btn"><a href="../views/ProductsView.vue" style="color: white; font-weight: bold;">See more in products</a></button>
+                  <button style="border-radius: 25px; height: 50px;" class="btn" id="hoverC" ><a href="./products" style="color: white; font-weight: bold;">See more in products</a></button>
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@
                 <h5 style="font-size: smaller; color: white; font-weight: bold; background-color: black;">Sub | Dub - Action, Fantasy, Adventure</h5>
                 <p style="font-size: medium; width: 350px;  color: white; margin-left: 10%; ">Solo Leveling is an exhilarating anime series that plunges viewers into a world where powerful monsters and dungeons emerge, threatening humanity. The story follows Jinwoo Sung, a seemingly weak and powerless "E-rank" hunter who, after a near-death experience, discovers a unique ability that allows him to "level up" beyond human limitations.</p>
                 <div class="btn">
-                  <button style="border-radius: 25px; height: 50px;" class="btn"><a href="../views/ProductsView.vue" style="color: white; font-weight: bold;">See more in products</a></button>
+                  <button style="border-radius: 25px; height: 50px;" class="btn" id="hoverC" ><a href="./products" style="color: white; font-weight: bold;">See more in products</a></button>
                 </div>
               </div>
             </div>
@@ -109,6 +109,67 @@
   color: white;
   text-decoration: none;
 }
+
+#hoverC:hover {
+  background-color: #900A0680; 
+}
+
+@media only screen and (max-width: 300px) {
+  #carrousel {
+    margin-top: 5rem;
+    text-align: center; 
+    width: 100%;
+    height: auto;
+  }
+  #text {
+    width: 100%;
+    height: 100%;
+    /* display: none; */
+    padding: 10px;
+    font-size: 1px;
+    text-align: center; /* Center the text */
+    margin: 5rem 18rem; /* Center the text container */
+    transform: translateY(-50%);
+  }
+  #text h1 {
+    font-size: 5em !important;
+    margin: 5rem 0 !important;
+  }
+  #text h3 {
+    font-size: 1em;
+    margin: 1rem 0;
+  }
+  #text h5 {
+    font-size: 0.8em;
+    margin: 1rem 0;
+  }
+  #text p {
+    font-size: 0.6rem !important;
+    width: 70% !important;
+    display:none;
+    color: #F2F7F7 !important;
+    font-weight: 700 !important;
+    margin: 0 25rem !important; /* Center the text content */
+  }
+  #text button {
+    padding: 5px 10px;
+    font-size: 0.8em;
+    margin: 10px auto; /* Center the button */
+    display: none;
+  }
+  .overlay-container img {
+    height: auto;
+    width: 100% !important; /* Ensure images don't zoom in */
+    object-fit: cover; /* Maintain image proportions */
+  }
+}
+
+
+
+
+
+
+
 
 
 </style>

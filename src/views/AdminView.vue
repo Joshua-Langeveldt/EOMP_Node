@@ -2,7 +2,7 @@
 <template>
     <div class="admin-container">
         <h1 style="font-family: Playfair Display; font-size: 35px; color: white; font-weight: bold; margin-top: 5%;">ADMIN</h1>
-        <button @click="openAddProductModal" class="add-btn bg-danger">Add new product</button>
+        <button @click="openAddProductModal" class="add-btn btn btn-danger">Add new product</button>
       <table class="admin-table">
         <thead>
           <tr>
@@ -16,9 +16,9 @@
             <td><img :src="product.prodURL" alt="product image" class="product-image"/></td>
             <td>{{ product.Category }}</td>
             <td>
-              <button @click="deleteProduct(product.prodID)" class="action-btn delete-btn bg-danger text-white">Delete</button>
-              <button @click="openUpdateProductModal(product)" class="action-btn update-btn bg-danger text-white">Edit</button>
-              <button @click="viewProduct(product)" class="action-btn view-btn bg-danger text-white">View</button>
+              <button @click="deleteProduct(product.prodID)" class="action-btn delete-btn" style="background-color: none !important;"> <img src="https://caitlin-dalwai.github.io/imgs/Vector.png" alt=""></button>
+              <button @click="openUpdateProductModal(product)" class="action-btn update-btn"><img src="https://caitlin-dalwai.github.io/imgs/Vector%20(1).png" alt=""> </button>
+              <button @click="viewProduct(product)" class="action-btn view-btn text-white">View</button>
             </td>
           </tr>
         </tbody>
@@ -130,7 +130,7 @@
 
   .admin-container {
     padding: 20px;
-    background-color: #222;
+    background-color: black;
     color: #fff;
   }
 
@@ -140,6 +140,8 @@
     margin-bottom: 10px;
     cursor: pointer;
     border-radius: 8rem;
+    background-color: #900A0680;
+
   }
 
   .admin-table {
@@ -159,14 +161,19 @@
   }
 
    .action-btn {
-    background-color: black;
-    color: red;
-    border: 1px solid #fffff;
-    padding: 5px 10px;
+    background-color: #900A06;
+    padding: 2%;
     margin: 0 5px;
     cursor: pointer;
     border-radius: 10rem;
+    width: 20%;
+    border: white solid 2px;
+    transition: border-color 0.2s ease;
   } 
+
+  .action-btn:hover {
+  border-color: #900A0680; 
+}
 
   .modal {
     position: fixed;
@@ -194,4 +201,113 @@
     font-size: 20px;
     color: white;
   }
+  .delete-btn {
+  position: relative; 
+  background-color: transparent; 
+  border: none; 
+  cursor: pointer; 
+}
+
+
+.delete-btn::after {
+  content: 'Delete'; 
+  position: absolute; 
+  left: 50%; 
+  top: 100%; 
+  transform: translateX(-50%); 
+  padding: 5px 10px; 
+  background-color: #900A06; 
+  color: white; 
+  font-size: 12px; 
+  border-radius: 5px;
+  opacity: 0; 
+  white-space: nowrap; 
+  transition: opacity 0.3s ease; 
+  pointer-events: none; 
+  z-index: 1; 
+}
+
+.delete-btn:hover::after {
+  opacity: 1; 
+}
+/* Style the button */
+.update-btn {
+  position: relative; /* Position relative to control pseudo-element positioning */
+  background-color: transparent; /* Ensure background is transparent */
+  border: none; /* Remove border */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Hide text by default */
+.update-btn::after {
+  content: 'Edit'; /* Text to display on hover */
+  position: absolute; /* Positioning relative to the button */
+  left: 50%; /* Center the text horizontally */
+  top: 100%; /* Position below the button */
+  transform: translateX(-50%); /* Adjust to perfectly center */
+  padding: 5px 10px; /* Add padding around the text */
+  background-color: #900A06; /* Background color for the hover text */
+  color: white; /* Text color */
+  font-size: 12px; /* Text size */
+  border-radius: 5px; /* Rounded corners */
+  opacity: 0; /* Start invisible */
+  white-space: nowrap; /* Prevent text wrapping */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+  pointer-events: none; /* Prevent text from being interactive */
+  z-index: 1; /* Ensure text is on top of other elements */
+}
+
+/* Show text on hover */
+.update-btn:hover::after {
+  opacity: 1; /* Make text visible */
+}
+
+@media (max-width: 300px) {
+    .admin-container {
+      padding: 10px;
+    }
+
+    .add-btn {
+      padding: 5px;
+      font-size: 12px;
+    }
+
+    .admin-table {
+      font-size: 12px;
+    }
+
+    .admin-table th, .admin-table td {
+      padding: 5px;
+    }
+
+    .product-image {
+      width: 80px;
+      height: 80px;
+    }
+
+    .action-btn {
+      padding: 1%;
+      margin: 0 2px;
+      font-size: 10px;
+    }
+
+    .modal-content {
+      padding: 10px;
+      font-size: 12px;
+    }
+
+    .close-btn {
+      font-size: 16px;
+    }
+
+    .view-product-details {
+      padding: 5px;
+    }
+
+    .view-product-image {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
   </style>

@@ -1,29 +1,29 @@
-<template>
+<template id="aboutBg">
   <div class="about">
     <div class="container text-center" style=" margin-top: 3%;">
       <canvas id="demo"></canvas>
 
-      <h1 style="margin-top: 1%; color: white; font-weight: bolder;">About Aniverse</h1>
+      <h1 style="margin-top: 5%; color: white; font-weight: bolder;">About Aniverse</h1>
 
       <div class="row">
-        <div class="col-lrg-6 align-self-start" data-aos="fade-right">
+        <div class="col-lrg-6 align-self-start">
           <img src="https://caitlin-dalwai.github.io/imgs-fin/aniverse%20(3)%202.png" alt="">
         </div>
         
-        <div class="col-lrg-6 align-self-end" data-aos="fade-left" style="margin-top: 1%; text-align: center;">
-          <p style="color: white; height: fit-content; width: 50%; background-color: #900A0680; margin: 0 auto 10%; border-radius: 5%; font-size: 17px; box-shadow: 4px 4px 4px white;">
+        <div class="col-lrg-6 align-self-end"  style="margin-top: 1%; text-align: center;">
+          <p style="color: white; height: fit-content; width: 70%; background-color: #900A0680; margin: 0 auto 10%; border-radius: 5%; font-size: 17px; box-shadow: 4px 4px 4px #900A0680; padding: 1.5%;" id="aboutText" >
             Aniverse is your ultimate destination for all things anime, merging the vibrant world of anime with the expansive universe of fandom. Our name, a fusion of "anime" and "universe," perfectly captures our mission to offer a comprehensive and immersive experience for anime enthusiasts. At Aniverse, we curate an extensive selection of anime movies, series, and merchandise, ensuring that every fan finds their favorite titles and collectibles. By choosing Aniverse, you're not just shopping—you're entering a universe where your anime passion is celebrated and nurtured with high-quality products and exceptional service. Dive into Aniverse and discover a world where your love for anime knows no bounds.
           </p>
         </div>
       </div>
     </div>
 
-    <div data-aos="fade-up" id="nextP" style="margin-top: -5rem; margin-bottom: 5%;">
-      <h1 style="font-family: Playfair Display; font-size: 35px; color: white; font-weight: bold; margin-top: 5%;">Meet The Team</h1>
+    <div  id="nextP" style="margin-top: -5rem; margin-bottom: 1%;">
+      <h1 style="font-family: Playfair Display; font-size: 35px; color: white; font-weight: bold; margin-top: 5%;" id="aboutH" >Meet The Team</h1>
       <div class="container text-center">
         <div class="row">
-          <div class="col align-self-start" style="margin-top: 5%;" data-aos="fade-up">
-            <img src="https://caitlin-dalwai.github.io/imgs-fin/caity%20boo%201%20(1).png" alt="" style="margin-top: 5%;">
+          <div class="col align-self-start" style="margin-top: 5%;" >
+            <img src="https://caitlin-dalwai.github.io/imgs-fin/caity%20boo%201%20(1).png" alt="" style="margin-top: 5%; border: 6px solid white; border-radius: 50%;">
             <h1 style="font-family: Playfair Display; font-size: 30px; color: white; font-weight: bold; margin-top: 2%;">Caitlin Dalwai</h1>
             <button type="button" class="btn" id="frontendModalBtn" data-bs-toggle="modal" data-bs-target="#frontendModal" style="border:10px solid #900A06; margin-right: 1%; background-color: #900A06; width: 150px; height: 58px; border-radius: 10rem;">
               <label for="button" style="font-family: Playfair Display; font-size: 18px; color: white; font-weight: bold; text-align: center">Read more</label>
@@ -50,8 +50,8 @@
             </div>
           </div>
 
-          <div class="col align-self-end" style="margin-top: 1%; text-align: center;" data-aos="fade-up">
-            <img src="https://caitlin-dalwai.github.io/imgs-fin/Jam-Inside%201.png" alt="" style="margin-top: 5%;">
+          <div class="col align-self-end" style="margin-top: 1%; text-align: center;" >
+            <img src="https://caitlin-dalwai.github.io/imgs-fin/Jam-Inside%201.png" alt="" style="margin-top: 5%; border: 6px solid white; border-radius: 50%;">
             <h1 style="font-family: Playfair Display; font-size: 30px; color: white; font-weight: bold; margin-top: 2%;">Jamin Langeveldt</h1>
             <button type="button" class="btn" id="backendModalBtn" data-bs-toggle="modal" data-bs-target="#backendModal" style="border:10px solid #900A06; margin-right: 1%; background-color: #900A06; width: 150px; height: 58px; border-radius: 10rem;">
               <label for="button" style="font-family: Playfair Display; font-size: 18px; color: white; font-weight: bold; text-align: center;">Read more</label>
@@ -86,14 +86,11 @@
 
 <script>
 /* eslint-disable */
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import _ from 'lodash';
 
 
 export default {
   mounted() {
-    AOS.init();
 
 
     let { random, range, times, assign } = _;
@@ -321,3 +318,20 @@ export default {
   
 }
 </script>
+<style scoped>
+#nextP{
+  background-color: black;
+}
+
+@media (max-width: 300px) {
+#aboutH{
+  margin-top: 30% !important;
+}
+#aboutText{
+  font-size: 10px !important;
+}
+
+}
+
+</style>
+

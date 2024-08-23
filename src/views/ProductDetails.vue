@@ -15,7 +15,7 @@
                         {{ product.Category }}
                     </p>
                     <p class="lead text-white"><span class="text-white fw-bold">Amount</span>: R{{ product.amount }}</p>
-                    <button class="btn btn-success">Purchase</button>
+                    <button class="btn btn-danger">Purchase</button>
                 </template>
             </Card>
         </div>

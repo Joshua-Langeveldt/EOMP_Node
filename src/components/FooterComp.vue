@@ -12,14 +12,12 @@
 </div>
 <div style="display: flex; align-items: center; margin-left: 25%;">
   <img src="https://caitlin-dalwai.github.io/imgs-fin/Vector.png" alt="" >
-  <p style="margin-top: 4%; margin-left: 2%;">+27 78 450 3293</p>
-  <p style="margin-top: 4%; margin-left: 2%;">+27 82 701 8105</p>
+  <p style="margin-top: 4%; margin-left: 2%;">+27 78 450 1234</p>
 
 </div>
 <div style="display: flex; align-items: center; margin-left: 25%;">
   <img src="https://caitlin-dalwai.github.io/imgs-fin/Vector (2).png" alt="" >
-  <p style="margin-top: 4%; margin-left: 2%;">langeveldt20joshua@gmail.com</p>
-  <p style="margin-top: 4%; margin-left: 2%;">dalwaicaitlin@gmail.com</p>
+  <p style="margin-top: 4%; margin-left: 2%;">aniversecorp@gmail.com</p>
 
 </div>
                     
