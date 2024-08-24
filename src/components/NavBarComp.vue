@@ -209,7 +209,7 @@ img[alt='logo'] {
                       <router-link class="nav-link" :class="{ active: $route.path=== '/products' }" id="col" to="/products">Products</router-link>
                     </li>
                     <li class="nav-item">
-                      <router-link class="nav-link" :class="{ active: $route.path=== '/contact' }" id="col" to="/contact">Get in touch</router-link>
+                      <router-link class="nav-link" :class="{ active: $route.path=== '/contact' }" id="col" to="/contact">Contact</router-link>
                     </li>
                     <ul class="admin-icon">
                     <li class="nav-item">
